@@ -1,52 +1,107 @@
+<div align="center">
+
 # FoturVPN Routing
 
-Профили маршрутизации FoturVPN для **Happ** и **INCY**. Рекомендуемый профиль — `DEFAULT`.
+**Маршрутизация для Happ и INCY**
 
-## Быстрая установка
+Выберите профиль: российские и белорусские ресурсы — напрямую, нужные сервисы — через VPN, нежелательный трафик — блокируется.
 
-На телефоне откройте файл `.DEEPLINK` для нужного приложения. Если файл открылся как текст, скопируйте строку `happ://` или `incy://` и откройте её на этом же устройстве. JSON-файл можно импортировать через редактор маршрутизации приложения.
+![Happ](https://img.shields.io/badge/Happ-поддерживается-4776E6?style=for-the-badge)
+![INCY](https://img.shields.io/badge/INCY-поддерживается-168A68?style=for-the-badge)
+![Profiles](https://img.shields.io/badge/профили-DEFAULT_%7C_WHITELIST_%7C_JSONSUB-555?style=for-the-badge)
 
-### Happ
+[Быстрая установка](#быстрый-старт) · [Профили](#профили) · [Правила](#что-куда-направляется) · [Обновления](#обновление-списков)
 
-| Профиль | Назначение | JSON | Deeplink |
+</div>
+
+---
+
+## 📲 Готовые ссылки для приложений
+
+Откройте ссылку на устройстве, где установлено нужное приложение. Она ведёт на страницу FoturVPN в Vercel и передаёт настройки в приложение.
+
+| Приложение | Готовая ссылка | Файлы и настройки |
+|---|---|---|
+| **Happ** | [Установить FoturVPN](https://clck.ru/3WZCbn) | [Профили Happ](#профили-happ) |
+| **INCY** | [Установить FoturVPN](https://clck.ru/3WZCd7) | [Профили INCY](#профили-incy) |
+| **Hiddify** | [Открыть FoturVPN](https://clck.ru/3WZCbo) | [Загрузить настройки Hiddify](https://clck.ru/3WZCb5) |
+
+Для Hiddify используется отдельный формат настроек. Он повторяет основные категории маршрутизации FoturVPN в пределах возможностей приложения.
+
+---
+
+## 🚀 Быстрый старт
+
+1. Выберите своё приложение и профиль **DEFAULT**.
+2. Откройте файл **DEEPLINK** на устройстве с установленным приложением.
+3. Если GitHub показывает текст ссылки, скопируйте строку `happ://` или `incy://` и откройте её на этом же устройстве.
+
+| Приложение | Рекомендуемый профиль | JSON |
+|---|---|---|
+| **Happ** | [Установить DEFAULT](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/DEFAULT.DEEPLINK) | [Открыть JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/DEFAULT.JSON) |
+| **INCY** | [Установить DEFAULT](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.DEEPLINK) | [Открыть JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.JSON) |
+
+> Deeplink импортирует настройки в приложение. Чтобы получить изменения, внесённые в профиль позднее, импортируйте его заново.
+
+## 🎛 Профили
+
+Профили доступны для [Happ](#профили-happ) и [INCY](#профили-incy). Логика маршрутизации у них одинаковая.
+
+### Профили Happ
+
+| Профиль | Для чего | Deeplink | JSON |
 |---|---|---|---|
-| **DEFAULT** | Россия и Беларусь, Microsoft, Apple и выбранные игровые сервисы — напрямую; YouTube, Telegram, GitHub, Google Play и остальное — через VPN. Реклама, телеметрия Windows и BitTorrent DHT блокируются. | [JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/DEFAULT.JSON) | [DEEPLINK](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/DEFAULT.DEEPLINK) |
-| **WHITELIST** | Напрямую идут только домены и IP из белых списков; остальное — через VPN. Реклама, телеметрия и BitTorrent DHT блокируются. | [JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/WHITELIST.JSON) | [DEEPLINK](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/WHITELIST.DEEPLINK) |
-| **JSONSUB** | Минимальный профиль с DNS и GeoIP/Geosite. Подходит, если правила задаются отдельно в подписке или панели. | [JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/JSONSUB.JSON) | [DEEPLINK](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/JSONSUB.DEEPLINK) |
+| **DEFAULT** | Готовые правила на каждый день | [Установить](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/DEFAULT.DEEPLINK) | [Посмотреть](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/DEFAULT.JSON) |
+| **WHITELIST** | Направлять напрямую только разрешённые домены и IP, остальное — через VPN | [Установить](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/WHITELIST.DEEPLINK) | [Посмотреть](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/WHITELIST.JSON) |
+| **JSONSUB** | Базовый профиль для конфигурации, где правила задаются отдельно | [Установить](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/JSONSUB.DEEPLINK) | [Посмотреть](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HAPP/JSONSUB.JSON) |
 
-### INCY
+### Профили INCY
 
-| Профиль | Назначение | JSON | Deeplink |
+| Профиль | Для чего | Deeplink | JSON |
 |---|---|---|---|
-| **DEFAULT** | Россия и Беларусь, Microsoft, Apple и выбранные игровые сервисы — напрямую; YouTube, Telegram, GitHub, Google Play и остальное — через VPN. Реклама, телеметрия Windows и BitTorrent DHT блокируются. | [JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.JSON) | [DEEPLINK](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.DEEPLINK) |
-| **WHITELIST** | Напрямую идут только домены и IP из белых списков; остальное — через VPN. Реклама, телеметрия и BitTorrent DHT блокируются. | [JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/WHITELIST.JSON) | [DEEPLINK](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/WHITELIST.DEEPLINK) |
-| **JSONSUB** | Минимальный профиль с DNS и GeoIP/Geosite. Подходит, если правила задаются отдельно в подписке или панели. | [JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/JSONSUB.JSON) | [DEEPLINK](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/JSONSUB.DEEPLINK) |
+| **DEFAULT** | Готовые правила на каждый день | [Установить](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.DEEPLINK) | [Посмотреть](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.JSON) |
+| **WHITELIST** | Направлять напрямую только разрешённые домены и IP, остальное — через VPN | [Установить](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/WHITELIST.DEEPLINK) | [Посмотреть](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/WHITELIST.JSON) |
+| **JSONSUB** | Базовый профиль для конфигурации, где правила задаются отдельно | [Установить](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/JSONSUB.DEEPLINK) | [Посмотреть](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/JSONSUB.JSON) |
 
-## Правила DEFAULT
+## 🧭 Что куда направляется
 
-| Действие | Что попадает в правило |
-|---|---|
-| **DIRECT** | Частные сети, российские и белорусские домены/IP, Microsoft, Apple, Steam, Epic Games, Riot, Escape from Tarkov, Twitch, Pinterest и Faceit |
-| **PROXY** | Google Play/Android, YouTube, Telegram, GitHub, Twitch Ads и весь остальной трафик |
-| **BLOCK** | Телеметрия Windows, публичные BitTorrent DHT и реклама |
+| Профиль | Напрямую | Через VPN | Блокируется |
+|---|---|---|---|
+| **DEFAULT** | Частные сети, сайты и IP России/Беларуси, Apple, Microsoft, выбранные игровые сервисы, Twitch и Faceit | YouTube, Telegram, GitHub, Google Play, реклама Twitch и остальной трафик | Реклама, телеметрия Windows, публичные BitTorrent DHT |
+| **WHITELIST** | Частные сети и домены/IP из белых списков | Остальной трафик | Реклама, телеметрия Windows, публичные BitTorrent DHT |
+| **JSONSUB** | Задаётся внешними правилами | Задаётся внешними правилами | Задаётся внешними правилами |
 
-Порядок обработки: **BLOCK → PROXY → DIRECT**.
+В профилях `DEFAULT` и `WHITELIST` порядок обработки правил: **BLOCK → PROXY → DIRECT**. Трафик, для которого нет отдельного правила, по умолчанию направляется через VPN.
 
-## DNS
+## 🌐 DNS
 
-| Трафик | DNS |
-|---|---|
-| Прямой | Яндекс DNS `77.88.8.8` по DoH |
-| Через VPN | Google Public DNS `8.8.8.8` по DoH |
+| Назначение | DNS-сервер | Протокол |
+|---|---|---|
+| Запросы для прямого трафика | Яндекс DNS · `77.88.8.8` | DoH |
+| Запросы для трафика через VPN | Google Public DNS · `8.8.8.8` | DoH |
 
-## Списки GeoIP и Geosite
+## 🔄 Обновление списков
 
-JSON-профили и deeplink-файлы FoturVPN хранятся в этом репозитории. Наборы адресов и доменов сейчас загружаются из релизов [roscomvpn-geoip](https://github.com/hydraponique/roscomvpn-geoip) и [roscomvpn-geosite](https://github.com/hydraponique/roscomvpn-geosite); ссылки на них прописаны в JSON-профилях.
+Профили FoturVPN используют GeoIP- и Geosite-файлы из релизов авторитетных наборов данных:
 
-GitHub Actions проверяет новые версии наборов каждую неделю, обновляет ссылки и пересобирает deeplink-файлы. Запуск вручную доступен во вкладке **Actions**.
+- [GeoIP](https://github.com/hydraponique/roscomvpn-geoip) — диапазоны IP-адресов.
+- [Geosite](https://github.com/hydraponique/roscomvpn-geosite) — домены, сгруппированные по категориям.
 
-## Файлы
+GitHub Actions раз в неделю проверяет новые выпуски, обновляет ссылки в JSON-профилях и пересоздаёт deeplink-файлы. При отсутствии новых выпусков профили не меняются. [Открыть Actions](https://github.com/Woonze/foturvpn-routing/actions/workflows/update-geodata.yml) и запустить обновление можно вручную.
 
-- `HAPP/` и `INCY/` содержат по три профиля: `DEFAULT`, `WHITELIST`, `JSONSUB`.
-- `.JSON` — профиль маршрутизации.
-- `.DEEPLINK` — ссылка для импорта в соответствующее приложение.
+## 📁 Структура репозитория
+
+```text
+HAPP/   Профили и deeplink-ссылки для Happ
+INCY/   Профили и deeplink-ссылки для INCY
+```
+
+Для каждого приложения доступны три профиля. Файл `.JSON` содержит настройки маршрутизации, `.DEEPLINK` — ссылку для импорта.
+
+---
+
+<div align="center">
+
+**FoturVPN · Ваш трафик — по вашим правилам**
+
+</div>
