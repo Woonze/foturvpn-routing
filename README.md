@@ -8,6 +8,7 @@
 
 ![Happ](https://img.shields.io/badge/Happ-поддерживается-4776E6?style=for-the-badge)
 ![INCY](https://img.shields.io/badge/INCY-поддерживается-168A68?style=for-the-badge)
+![Hiddify](https://img.shields.io/badge/Hiddify-настройки-7357D5?style=for-the-badge)
 ![Profiles](https://img.shields.io/badge/профили-DEFAULT_%7C_WHITELIST_%7C_JSONSUB-555?style=for-the-badge)
 
 [Быстрая установка](#быстрый-старт) · [Профили](#профили) · [Правила](#что-куда-направляется) · [Обновления](#обновление-списков)
@@ -24,9 +25,9 @@
 |---|---|---|
 | **Happ** | [Установить FoturVPN](https://clck.ru/3WZCbn) | [Профили Happ](#профили-happ) |
 | **INCY** | [Установить FoturVPN](https://clck.ru/3WZCd7) | [Профили INCY](#профили-incy) |
-| **Hiddify** | [Открыть FoturVPN](https://clck.ru/3WZCbo) | [Загрузить настройки Hiddify](https://clck.ru/3WZCb5) |
+| **Hiddify** | [Скачать настройки FoturVPN (.json)](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HIDDIFY/FoturVPN.json) | [Инструкция по импорту](#hiddify) |
 
-Для Hiddify используется отдельный формат настроек. Он повторяет основные категории маршрутизации FoturVPN в пределах возможностей приложения.
+В Hiddify этот JSON импортируется как **настройки приложения**, а не как VPN-профиль. Поэтому ссылка вида «Добавить профиль» здесь не подходит.
 
 ---
 
@@ -42,6 +43,21 @@
 | **INCY** | [Установить DEFAULT](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.DEEPLINK) | [Открыть JSON](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/INCY/DEFAULT.JSON) |
 
 > Deeplink импортирует настройки в приложение. Чтобы получить изменения, внесённые в профиль позднее, импортируйте его заново.
+
+### Hiddify
+
+Файл Hiddify содержит параметры приложения и правила маршрутизации FoturVPN. Скачайте его по ссылке выше, затем в Hiddify откройте **Настройки → Config Options (Параметры конфигурации) → меню ⋮ → Import from file (Импорт из файла)** и выберите `FoturVPN.json`. Не добавляйте этот файл через кнопку `+` в разделе VPN-профилей: это другой тип конфигурации.
+
+Если устройство сохранило файл как `FoturVPN.json.txt`, переименуйте его в `FoturVPN.json` перед импортом. В имени должно остаться только одно расширение `.json`.
+
+Конфиг использует действия `direct`, `proxy` и `block`:
+
+- **Напрямую (`direct`)** — частные сети, российские домены и IP, белые списки, Apple, Microsoft и выбранные игровые сервисы.
+- **Через VPN (`proxy`)** — Google Play, GitHub, YouTube и Telegram; Twitch Ads также направляется через VPN.
+- **Блокируется (`block`)** — реклама, телеметрия Windows и публичные BitTorrent DHT.
+- **Остальной трафик** — идёт через VPN, если для него нет отдельного правила.
+
+Это именно файл настроек Hiddify, поэтому установить его кликом через VPN-deeplink нельзя. После импорта правила применяются в Hiddify и могут заменить соответствующие текущие параметры приложения.
 
 ## 🎛 Профили
 
@@ -94,9 +110,10 @@ GitHub Actions раз в неделю проверяет новые выпуск
 ```text
 HAPP/   Профили и deeplink-ссылки для Happ
 INCY/   Профили и deeplink-ссылки для INCY
+HIDDIFY/ Настройки маршрутизации для Hiddify
 ```
 
-Для каждого приложения доступны три профиля. Файл `.JSON` содержит настройки маршрутизации, `.DEEPLINK` — ссылку для импорта.
+Для Happ и INCY доступны три профиля: `.JSON` содержит настройки маршрутизации, `.DEEPLINK` — ссылку для импорта. Для Hiddify доступен отдельный JSON-файл настроек приложения.
 
 ---
 
