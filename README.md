@@ -25,7 +25,7 @@
 |---|---|---|
 | **Happ** | [Установить FoturVPN](https://clck.ru/3WZCbn) | [Профили Happ](#профили-happ) |
 | **INCY** | [Установить FoturVPN](https://clck.ru/3WZCd7) | [Профили INCY](#профили-incy) |
-| **Hiddify** | [Скачать настройки FoturVPN (.json)](https://raw.githubusercontent.com/Woonze/foturvpn-routing/main/HIDDIFY/FoturVPN.json) | [Инструкция по импорту](#hiddify) |
+| **Hiddify** | [Скачать настройки FoturVPN (.json)](https://github.com/Woonze/foturvpn-routing/raw/refs/heads/main/HIDDIFY/FoturVPN.json) | [Инструкция по импорту](#hiddify) |
 
 В Hiddify этот JSON импортируется как **настройки приложения**, а не как VPN-профиль. Поэтому ссылка вида «Добавить профиль» здесь не подходит.
 
